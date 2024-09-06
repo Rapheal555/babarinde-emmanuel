@@ -18,14 +18,14 @@ export default function Website() {
           <Grid>
             <Grid.Col visibleFrom="md" span={{ lg: 4, md: 3 }}>
               <Box style={{ display: "flex", justifyContent: "end" }}>
-                <Image maw="310" h="auto" src={"./images/3.png"} alt="" />
+                <Image maw="310" h="auto" src={"./images/doctor1.png"} alt="" />
               </Box>
             </Grid.Col>
             <Grid.Col span={{ lg: 8, md: 9 }}>
               <div style={{ justifyContent: "start" }} className={styles.inner}>
-                <Title className={styles.smart}>SMART </Title>
+                <Title className={styles.smart}>Welcome to</Title>
                 <Title className={styles.healthcare}>
-                  HEALTHCARE{" "}
+                  an{" "}
                   <Text
                     c="#ff4912"
                     component="span"
@@ -33,36 +33,46 @@ export default function Website() {
                     className={styles.system}
                     inherit
                   >
-                    system
-                  </Text>
+                    expert system
+                  </Text>{" "}
+                  for diagnosing malaria and typhoid{" "}
                 </Title>
 
+                <Box
+                  hiddenFrom="md"
+                  style={{ display: "flex", justifyContent: "end" }}
+                >
+                  <Image
+                    maw="310"
+                    h="auto"
+                    src={"./images/doctor1.png"}
+                    alt=""
+                  />
+                </Box>
                 <Text
                   mt="xl"
                   pt="lg"
                   fs="italic"
-                  size="lg"
-                  c="var(--mantine-color-white)"
+                  size="xl"
+                  c="var(--mantine-color-pink-6)"
                   className={styles.description}
                 >
-                  Our advanced healthcare platform combines cutting-edge
-                  technology, data-driven insights, and a dedicated focus on
-                  personalized care to revolutionize the way you manage your
-                  health and wellness throughout your lifetime.
+                  Please what test will you like to go for?
                 </Text>
-
                 <div className={styles.controls}>
-                  <Button
-                    radius="xl"
-                    className={styles.control}
-                    mr={{ md: 20 }}
-                    size="lg"
-                    bg="#fa1b35"
-                    c="var(--mantine-color-white)"
-                  >
-                    How it works
-                  </Button>
-                  <Link href={"/diagnose"} passHref>
+                  <Link href={"/diagnose?t=malaria"} passHref>
+                    <Button
+                      mr={"lg"}
+                      radius="xl"
+                      c="#fa1b35"
+                      bg="var(--mantine-color-white)"
+                      className={styles.control}
+                      size="lg"
+                    >
+                      Malaria
+                    </Button>
+                  </Link>
+                  <Link href={"/diagnose?t=typhoid"} passHref>
                     <Button
                       radius="xl"
                       c="#fa1b35"
@@ -70,7 +80,7 @@ export default function Website() {
                       className={styles.control}
                       size="lg"
                     >
-                      Diagnose me
+                      Typhoid
                     </Button>
                   </Link>
                 </div>

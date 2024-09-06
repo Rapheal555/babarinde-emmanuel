@@ -1,22 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Stepper, Button, Group, Code, Progress, Box } from "@mantine/core";
+import {
+  Stepper,
+  Button,
+  Group,
+  Code,
+  Progress,
+  Box,
+  Text,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import Question from "./Question";
+import Link from "next/link";
+import styles from "../app/page.module.css";
 
 export default function Malaria() {
   const [active, setActive] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+  const [color, setColor] = useState("");
 
   useEffect(() => {
-    if (active == 9) {
-      if (score > 5) {
+    if (active == 8) {
+      if (score > 4) {
         setResult(
           "It seams you are having Malaria, please see your doctor immediately"
         );
+        setColor("var(--mantine-color-red-7)");
       } else {
-        setResult("You are not having Malaria.");
+        setResult("Congratulations! You are not having Malaria. Thank you.");
+        setColor("var(--mantine-color-green-7)");
       }
     }
   }, [active]);
@@ -38,13 +51,13 @@ export default function Malaria() {
       return score + 1;
     });
     setActive((current) => {
-      return current < 9 ? current + 1 : current;
+      return current < 8 ? current + 1 : current;
     });
   };
 
   const handleNo = () => {
     setActive((current) => {
-      return current < 9 ? current + 1 : current;
+      return current < 8 ? current + 1 : current;
     });
   };
 
@@ -114,22 +127,24 @@ export default function Malaria() {
             quest="Are you having pain in your abdomen?"
           />
         </Stepper.Step>
-        <Stepper.Step label="" description="">
-          <Question
-            onClickNo={handleNo}
-            onClickYes={handleYes}
-            quest="Are you feeling cold?"
-          />
-        </Stepper.Step>
 
         <Stepper.Completed>
           <Box mt="xl" ta="center">
-            <h2>{result}</h2>
+            <Text fz="lg" c={color}>
+              {result}
+            </Text>
+          </Box>
+          <Box style={{ display: "flex", justifyContent: "center" }}>
+            <Link href={"/"} passHref>
+              <Button mt="xl" radius="xl" className={styles.control} size="lg">
+                Go back to home page
+              </Button>
+            </Link>
           </Box>
         </Stepper.Completed>
       </Stepper>
-      <Progress value={(active / 9) * 100} />
-      <h1>{score}</h1>
+      {active < 8 && <Progress mt="lg" value={(active / 8) * 100} />}
+
       <Group justify="flex-end" mt="xl">
         {/* {active !== 0 && (
           <Button m="md" variant="default" onClick={prevStep}>

@@ -1,5 +1,6 @@
 .main {
-  background-image: url("../../public/images/2.png") !important;
+  min-height: 100dvh;
+  background-image: url("../../public/images/bg.jpg") !important;
   background-size: cover;
   /* height: 100%; */
 }
