@@ -1,0 +1,77 @@
+.main {
+  background-image: url("../../public/images/2.png") !important;
+  background-size: cover;
+  /* height: 100%; */
+}
+.wrapper {
+  position: relative;
+  padding-top: rem(120px);
+
+  @media (max-width: 48em) {
+    padding-top: rem(80px);
+    padding-bottom: rem(40px);
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.smart {
+  letter-spacing: -1px;
+  color: light-dark(var(--mantine-color-white));
+  margin-bottom: var(--mantine-spacing-xs);
+  /* font-family: "Kalnia Glaze"; */
+  font-weight: 800;
+  font-size: rem(40px);
+  @media (max-width: 36em) {
+    font-size: rem(28px);
+  }
+}
+
+.healthcare {
+  font-family: Poppins, sans-serif;
+  color: light-dark(var(--mantine-color-blue-6), var(--mantine-color-blue-4));
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-weight: 800;
+}
+.system {
+  font-family: "Playwrite Danmark Loopet", cursive;
+  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
+    -2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff;
+}
+
+.description {
+  /* text-align: center; */
+
+  @media (max-width: 36em) {
+    /* text-align: left; */
+    font-size: var(--mantine-font-size-md);
+  }
+}
+
+.controls {
+  margin-top: var(--mantine-spacing-lg);
+
+  @media (max-width: 36em) {
+    flex-direction: column;
+  }
+}
+
+.control {
+  &:not(:first-of-type) {
+    margin-left: var(--mantine-spacing-md);
+  }
+
+  @media (max-width: 36em) {
+    height: rem(42px);
+    font-size: var(--mantine-font-size-md);
+
+    &:not(:first-of-type) {
+      margin-top: var(--mantine-spacing-md);
+      margin-left: 0;
+    }
+  }
+}
